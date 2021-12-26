@@ -1,15 +1,15 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { Button } from './Button';
+import { Input } from './Input';
 
 export default {
-  title: 'Button',
-  component: Button,
+  title: 'Input',
+  component: Input,
   argTypes: {
     backgroundColor: { control: 'color' }
   }
-} as ComponentMeta<typeof Button>;
+} as ComponentMeta<typeof Input>;
 
-const Template: ComponentStory<typeof Button> = (args) => <Button {...args} />;
+const Template: ComponentStory<typeof Input> = (args) => <Input {...args} />;
 
 export const All = Template.bind({});
 All.args = {
