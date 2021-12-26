@@ -1,36 +1,22 @@
 # Next.js architecture.
 
-My personal architecture rule for Next.js appliaction.
+このリポジトリは Next.js (React) アプリケーションを構築していく上での、`コンポーネント設計`、`依存ルール`、`テスト方針`について考え言語化したものです。フロントエンド設計の`ベストプラクティス`未だに定まっていない分野でもあります。スケールして複雑化していくアプリケーションに対して、スケーラビティや保守性を意識して考えていきます。完全に個人の主観なので、所属企業やプロジェクトとは一切関係ありません。
 
-## Getting Started
+## コンポーネント設計
 
-First, run the development server:
+`src/components` 配下のディレクトリ構成は以下になります。
 
 ```bash
-npm run dev
-# or
-yarn dev
+src/components/
+└── ui
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
-
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
-
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+### ui
+このディレクトリでは汎用的な各パーツの集まりです。 Atomic Design だと Atomsとorganizms にあたります。各コンポーネント配下の構成は以下になります。ルールとして、ui ディレクトリでは必ず 各コンポーネント配下に Storybook の設定ファイルを配置します。
+```
+./components/ui/Avatar
+├── Avatar.stories.tsx
+├── Avatar.tsx
+├── avatar.module.css
+└── index.ts
+```
